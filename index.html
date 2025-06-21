@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jade's Birthday 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, #ffdde1, #fbb5c1);
+      color: #2a2a2a;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://via.placeholder.com/1920x1080?text=Jade+Collage') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-overlay {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+      max-width: 700px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-overlay.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8em;
+      color: #d6336c;
+    }
+
+    .details, .rsvp {
+      min-height: 100vh;
+      padding: 60px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #fbb5c1, #ffe3ec);
+    }
+
+    .details h2, .rsvp h2 {
+      font-size: 2.2em;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+
+    .details p, .rsvp p {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+
+    .activities {
+      margin-top: 20px;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .map {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input, button {
+      padding: 10px 15px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    button {
+      background-color: #d6336c;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .thank-you {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-overlay {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-overlay" id="inviteOverlay">
+      <h1>You're Invited to Jade's Birthday 🎉</h1>
+      <p>Saturday, July 12th • 2 PM</p>
+      <p>For You Chinese Restaurant</p>
+      <p>Theme: All Black</p>
+    </div>
+  </section>
+
+  <section class="details" id="details">
+    <h2>Party Details</h2>
+    <p>📍 Location: For You Chinese Restaurant</p>
+    <p>🕒 Time: 2 PM</p>
+    <p>📅 Date: Saturday, July 12th</p>
+    <p>🎭 Dress Code: All Black</p>
+    <div class="activities">
+      <p>Activities:</p>
+      <p>• Party Games</p>
+      <p>• Food Galore</p>
+      <p>• Photobooth</p>
+      <p>RSVP by July 5th</p>
+    </div>
+    <div class="map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.7293790755352!2d36.76933863093874!3d-1.2906805573697537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a0e54c5edc5%3A0x84b88fa0ee573ef8!2sFor%20You%20Chinese%20Restaurant!5e1!3m2!1sen!2ske!4v1750538031133!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <h2>RSVP Now</h2>
+    <p>Confirm your attendance below</p>
+    <form id="rsvpForm">
+      <input type="text" id="firstName" placeholder="First Name" required />
+      <input type="text" id="lastName" placeholder="Last Name" required />
+      <input type="tel" id="whatsapp" placeholder="WhatsApp Number" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <button type="submit">Confirm</button>
+    </form>
+    <div class="thank-you" id="thankYou">🎉 Thank you for confirming! See you there!</div>
+  </section>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("inviteOverlay");
+      setTimeout(() => {
+        overlay.classList.add("show");
+      }, 2000);
+
+      const form = document.getElementById("rsvpForm");
+      const thankYou = document.getElementById("thankYou");
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        thankYou.style.display = "block";
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
