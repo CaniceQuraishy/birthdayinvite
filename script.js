@@ -1,10 +1,10 @@
 window.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("inviteOverlay");
 
-  // Delay the show and background transition
+  // Reveal popup after 3 seconds
   setTimeout(() => {
     overlay.classList.add("show");
-  }, 3000); // 3 seconds
+  }, 3000);
 
   const form = document.getElementById("rsvpForm");
   const thankYou = document.getElementById("thankYou");

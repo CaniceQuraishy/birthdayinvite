@@ -10,15 +10,18 @@ body, html {
   background: linear-gradient(to bottom, #ffdde1, #fbb5c1); /* fallback if video fails */
   color: #2a2a2a;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 section {
   width: 100%;
 }
 
+/* Hero section */
 .hero {
   position: relative;
   height: 100vh;
+  max-height: 100dvh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -26,18 +29,19 @@ section {
   text-align: center;
 }
 
+/* Responsive video */
 .background-video {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   object-fit: cover;
   z-index: 0;
+  pointer-events: none;
 }
 
-/* Removed gradient overlay */
-
+/* Popup card */
 .hero-overlay {
   position: relative;
   z-index: 2;
@@ -49,7 +53,7 @@ section {
   transition:
     transform 0.8s ease,
     opacity 0.8s ease,
-    background-color 1.5s ease-in-out;
+    background-color 0.6s ease;
   max-width: 700px;
   width: 90%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -58,6 +62,11 @@ section {
 .hero-overlay.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Turns white when hovered or focused */
+.hero-overlay:hover,
+.hero-overlay:focus-within {
   background-color: #ffffff;
 }
 
@@ -143,5 +152,16 @@ button {
   }
   h1 {
     font-size: 2em;
+  }
+}
+@media (max-width: 480px) {
+  .hero-overlay {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  .details h2, .rsvp h2 {
+    font-size: 1.8em;
   }
 }
