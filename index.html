@@ -24,6 +24,16 @@
       <p>Saturday, July 12th • 2 PM</p>
     </div>
   </section>
+  
+  <!-- Music Controls -->
+<div class="music-control">
+  <button id="musicToggle">🔊 Play Music</button>
+  <audio id="bgMusic" loop>
+    <source src="media/jade_theme.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
 
   <!-- DETAILS SECTION -->
   <section class="details" id="details">
@@ -53,8 +63,7 @@
 
   <!-- RSVP SECTION -->
   <section class="rsvp" id="rsvp">
-    <h2>RSVP Now</h2>
-    <p>RSVP by July 5th</p>
+    <h2>RSVP Before July 5th</h2>
     <p>Confirm your attendance below</p>
     <form id="rsvpForm">
       <input type="text" id="firstName" placeholder="First Name" required />

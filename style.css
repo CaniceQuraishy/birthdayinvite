@@ -164,4 +164,22 @@ button {
   .details h2, .rsvp h2 {
     font-size: 1.8em;
   }
+  
+}
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+#musicToggle {
+  background: #d6336c;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
