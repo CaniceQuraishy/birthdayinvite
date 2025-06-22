@@ -4,17 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jade's Birthday 🎉</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- HERO SECTION -->
   <section class="hero">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="media/background_video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-overlay" id="inviteOverlay">
-      <h1>You're Invited to Jade's Birthday 🎉</h1>
+      <h1>You're Invited to Jade's <br>21st Birthday 🎉</h1>
       <p>Saturday, July 12th • 2 PM</p>
+      <p>For You Chinese Restaurant</p>
+      <p>Theme: All Black</p>
     </div>
   </section>
 
+  <!-- DETAILS SECTION -->
   <section class="details" id="details">
     <h2>Party Details</h2>
     <p>📍 Location: For You Chinese Restaurant</p>
@@ -41,6 +54,7 @@
     </div>
   </section>
 
+  <!-- RSVP SECTION -->
   <section class="rsvp" id="rsvp">
     <h2>RSVP Now</h2>
     <p>Confirm your attendance below</p>
@@ -54,6 +68,7 @@
     <div class="thank-you" id="thankYou">🎉 Thank you for confirming! See you there!</div>
   </section>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
