@@ -4,20 +4,23 @@ window.addEventListener("DOMContentLoaded", () => {
   const thankYou = document.getElementById("thankYou");
   const music = document.getElementById("bgMusic");
   const musicToggle = document.getElementById("musicToggle");
+  const musicControl = document.querySelector(".music-control");
 
   // Reveal popup after 3 seconds
   setTimeout(() => {
     overlay.classList.add("show");
   }, 3000);
 
-  // Form logic
+  // RSVP form
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     thankYou.style.display = "block";
     form.reset();
   });
 
-  // Music autoplay workaround for mobile
+  // Default state
+  musicToggle.textContent = "🔊 Play Music";
+
   let musicStarted = false;
 
   function tryPlayMusic() {
@@ -25,27 +28,27 @@ window.addEventListener("DOMContentLoaded", () => {
       music.play().then(() => {
         musicStarted = true;
         musicToggle.textContent = "🔇 Pause Music";
+        musicControl.classList.add("music-started");
       }).catch(() => {
-        // Autoplay blocked — wait for user click
-        musicToggle.textContent = "🔊 Play Music";
+        // Autoplay blocked
       });
     }
   }
 
-  // Try once on load
-  tryPlayMusic();
-
-  // Also try again on first user interaction
+  // Try on first interaction
   document.body.addEventListener("click", tryPlayMusic, { once: true });
 
-  // Toggle music manually
+  // Manual toggle
   musicToggle.addEventListener("click", () => {
     if (music.paused) {
-      music.play();
-      musicToggle.textContent = "🔇 Pause Music";
+      music.play().then(() => {
+        musicToggle.textContent = "🔇 Pause Music";
+        musicControl.classList.add("music-started");
+      });
     } else {
       music.pause();
       musicToggle.textContent = "🔊 Play Music";
+      musicControl.classList.remove("music-started");
     }
   });
 });
