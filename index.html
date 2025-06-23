@@ -65,15 +65,15 @@
     </div>
   </section>
 
-  <!-- RSVP SECTION -->
+  <!-- RSVP FORM SECTION -->
   <section class="rsvp" id="rsvp">
     <h2>RSVP Before July 5th</h2>
     <p>Confirm your attendance below</p>
-    <form id="rsvpForm">
-      <input type="text" id="firstName" placeholder="First Name" required />
-      <input type="text" id="lastName" placeholder="Last Name" required />
-      <input type="tel" id="whatsapp" placeholder="WhatsApp Number" required />
-      <input type="email" id="email" placeholder="Email Address" required />
+    <form id="rsvpForm" action="https://sheetdb.io/api/v1/1p4sy7f0w660z" method="POST">
+      <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
+      <input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
+      <input type="tel" name="phone" id="whatsapp" placeholder="WhatsApp Number" required />
+      <input type="email" name="email" id="email" placeholder="Email Address" required />
       <button type="submit">Confirm</button>
     </form>
     <div class="thank-you" id="thankYou">🎉 Thank you for confirming! See you there!</div>
