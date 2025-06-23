@@ -11,14 +11,36 @@ window.addEventListener("DOMContentLoaded", () => {
     overlay.classList.add("show");
   }, 3000);
 
-  // RSVP form
+  // RSVP form submission
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    thankYou.style.display = "block";
-    form.reset();
+
+    const formData = {
+      firstName: document.getElementById("firstName").value,
+      lastName: document.getElementById("lastName").value,
+      phone: document.getElementById("whatsapp").value,
+      email: document.getElementById("email").value,
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbyOucWGj4HHKvPWSSuwxtTDyMknTI7kaKTFYhR53zCwJJdvK8dWKbIX8XHDrcHi-wWJtg/exec", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        thankYou.style.display = "block";
+        form.reset();
+      })
+      .catch((err) => {
+        alert("Oops! Something went wrong. Please try again.");
+        console.error(err);
+      });
   });
 
-  // Default state
+  // Default button text
   musicToggle.textContent = "🔊 Play Music";
 
   let musicStarted = false;
