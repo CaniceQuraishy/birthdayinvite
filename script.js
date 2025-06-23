@@ -11,33 +11,12 @@ window.addEventListener("DOMContentLoaded", () => {
     overlay.classList.add("show");
   }, 3000);
 
-  // RSVP form submission
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = {
-      firstName: document.getElementById("firstName").value,
-      lastName: document.getElementById("lastName").value,
-      phone: document.getElementById("whatsapp").value,
-      email: document.getElementById("email").value,
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbyOucWGj4HHKvPWSSuwxtTDyMknTI7kaKTFYhR53zCwJJdvK8dWKbIX8XHDrcHi-wWJtg/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then(() => {
-        thankYou.style.display = "block";
-        form.reset();
-      })
-      .catch((err) => {
-        alert("Oops! Something went wrong. Please try again.");
-        console.error(err);
-      });
+  // RSVP form submission (just show thank you)
+  form.addEventListener("submit", function () {
+    setTimeout(() => {
+      thankYou.style.display = "block";
+      form.reset();
+    }, 600); // Let SheetDB finish
   });
 
   // Default button text
